@@ -1,0 +1,145 @@
+* {
+    background-color: aliceblue;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0px;
+    overflow: auto;
+}
+
+main{
+   background-color: rgb(152, 209, 242);
+}
+
+input[type=text] {
+    padding: 10px 15px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(215, 231, 241);
+    color: black;
+    border: blue;
+}
+
+
+section#backgroundDiv{
+    background-color: rgb(152, 209, 242);
+}
+
+input[type=email] {
+    padding: 10px 15px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(215, 231, 241);
+    color: black;
+    border: blue;
+}
+
+::placeholder {
+    color: rgb(97, 97, 97);
+    opacity: 1;
+    /* Firefox */
+}
+
+form {
+    padding-left: 5%;
+    padding-top: 20px; 
+    background: linear-gradient(rgb(224, 235, 224), rgb(152, 209, 242));
+}
+
+div {
+    line-height: 27px;
+    font-size: 16px;
+    background-color: rgba(138, 188, 215, 0.277);
+    padding: 2%;
+    color: #2d2d2d;
+    border-radius: 5px;
+    width: 90%;
+}
+
+section {
+    text-align: center;
+}
+
+div.select {
+    appearance: none;
+    /* safari */
+    -webkit-appearance: none;
+    /* other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+
+#backgroundDiv {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+}
+
+button{
+    width: 20%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: #00000034 5px 5px 10px;
+    background-color: rgb(215, 231, 241);
+}
+
+button:hover{
+    background-color: rgba(159, 181, 203, 0.95)
+}
+
+p{
+    font-size: 16px;
+    padding: 2%;
+    color: #545252;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    height: 100px;
+    padding: 10px 15px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgb(215, 231, 241);
+    color: black;
+    border: blue;
+}
+
+.generatedDiv{
+    text-align: left;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+h1{
+
+    margin-top: 20px;
+}
+
+.word {
+    transition: color 0.3s ease; /* Smooth transition for the color change */
+}
+
+#canvasParent.span.word:hover{
+    color: rgb(70, 70, 55)
+}
+

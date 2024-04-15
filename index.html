@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- CDNs for D3, D3-cloud, and D3 Transition  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.7/d3.layout.cloud.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- This is the loading Bar that appears when the form is submitted.  -->
+    <div id="loading"
+        style="background-color: rgba(240, 248, 255, 0); position: fixed; top: 30%;  text-align: center; display: none; ">
+        <h1
+            style="background-color: rgba(240, 248, 255, 0.718); width: 50%; padding:10%; margin-left: 15%; border-radius: 5px;">
+            Loading...
+        </h1>
+    </div>
+
+    <script>
+        let appURL = "https://script.google.com/macros/s/AKfycbyFZj5Ac15dF6JwEWiwGrji6dDXXqJQBUXj6ryUfRgAJdqDM-fnoR09kHlqVaODslK15g/exec"
+    </script>
+
+    <!-- This section contains the div with the wordcloud and is brought to the front once the form is submitted.  -->
+    <section id="backgroundDiv" style="text-align: center; overflow: auto" ;>
+        <br>
+        <br>
+        <br>
+        <h1 style="background-color: rgba(240, 248, 255, 0); ">
+            Some of our top stressors:
+        </h1>
+        <br>
+
+        <div style="background-color: rgba(240, 248, 255, 0); text-align: center; overflow-x: hidden; padding: 5%; width: 90%;"
+            id="my_dataviz"></div>
+    </section>
+
+
+    <!-- This is the front facing form and HTML elements of this page. Contains the Form  -->
+    <form id="myForm" method="POST" action=appURL>
+
+        <h1 style="background-color: rgba(240, 248, 255, 0);">Stressors Word Cloud</h1>
+        <p style="background-color: rgba(240, 248, 255, 0);">
+            In the following interactive, write down some of your top stressors.
+            These answers will be sent directly to your proffesor, once you've completed the form you'll be able
+            to see a few anonymous responses from your classmates.
+        </p>
+        <br>
+        <div>
+            Please enter your Name and Current Email Address,
+            this adress will be accessed by your proffesor to contact you about your work.
+            <br>
+            <br>
+            <input name="Name" type="text" placeholder="Name" required>
+            <br>
+            <input name="Email" type="email" placeholder="Email" required>
+            <br>
+            <textarea name="Stressors" type="text" placeholder="Some of my top stressors are..." required></textarea>
+        </div>
+
+        <section style="padding: 50px; background-color: rgba(152, 209, 242, 0);">
+            <button type="submit">See Class Results</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </section>
+        <br>
+    </form>
+
+
+
+
+
+    <!-- Here is the script which takes the form data and pushes it to our google script that is specific to the google sheet with the stressor data. 
+    To view this script you can go here: https://script.google.com/u/0/home/projects/1RPuaSbRsq2OtXFQqRE0lqKwcwgi7wlONYmqPRCOPlZeg9BkhhsagDSG_/edit -->
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('myForm').addEventListener('submit', function (e) {
+                loading()
+                e.preventDefault(); // Prevent default form submission
+
+                const formData = new FormData(this); // Grab the form data
+
+                fetch(appURL, {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(data => {
+                        // console.log('Success:', data);
+                        getData(setTimeout(dataStage, 2000))
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+
+        function loading() {
+            document.getElementById('loading').style.display = "block";
+        }
+
+        function dataStage() {
+            let backgroundDiv = document.getElementById('backgroundDiv')
+            backgroundDiv.style.zIndex = "10";
+            
+        }
+
+    </script>
+
+
+
+    <script src="index.js" async defer></script>
+</body>
+
+</html>
